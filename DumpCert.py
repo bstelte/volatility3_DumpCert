@@ -10,7 +10,6 @@ from typing import Iterable, List, Tuple
 import datetime
 import requests
 import base64
-import sys 
 
 from volatility.framework import interfaces, renderers, exceptions
 from volatility.framework.configuration import requirements
@@ -60,11 +59,11 @@ class DumpCert(interfaces.plugins.PluginInterface):
                                             version = (2, 0, 0)),
             requirements.BooleanRequirement(name = 'dump',
                                             description = "Extract CERT to current folder",
-                                            default = "False",
+                                            default = False,
                                             optional = True),
             requirements.BooleanRequirement(name = 'oscp',
                                             description = "Ask OSCP Server if Cert is valid",
-                                            default = "False",
+                                            default = False,
                                             optional = True),
             requirements.ListRequirement(name = 'pid',
                                          element_type = int,
